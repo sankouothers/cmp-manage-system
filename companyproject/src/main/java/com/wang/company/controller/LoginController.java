@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wang.company.command.LoginCommand;
+import com.wang.company.command.ResponseCommand;
 import com.wang.company.model.User;
 import com.wang.company.service.UserService;
 import com.wang.company.util.Constants;
@@ -44,18 +45,19 @@ import com.wang.company.util.Constants;
     value  = "/login",
     method = RequestMethod.POST
   )
-  public ResponseEntity login(LoginCommand userCommand, HttpServletRequest request) {
+  public ResponseEntity<ResponseCommand> login(LoginCommand userCommand, HttpServletRequest request) {
     User user = userService.findByNameAndPassWord(userCommand.getUserName(), userCommand.getPassWord());
 
-    if (user == null) {
-      return new ResponseEntity(HttpStatus.EXPECTATION_FAILED);
-    } else {
+    if (user != null) {
       HttpSession session = request.getSession();
       session.setAttribute(Constants.USER_NAME_KEY, user.getName());
       session.setAttribute(Constants.USER_ID_KEY, user.getId());
 
-      return new ResponseEntity(HttpStatus.OK);
+      return new ResponseEntity<>(HttpStatus.OK);
     }
+
+
+    return new ResponseEntity<>(new ResponseCommand("用户名或密码错误"), HttpStatus.OK);
   }
 
 } // end class LoginController
