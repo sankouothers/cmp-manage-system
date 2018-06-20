@@ -30,11 +30,13 @@ import com.wang.company.service.UserService;
    */
   @Override public User findByNameAndPassWord(String name, String passWord) {
     User user;
-    try{
+
+    try {
       user = userRepository.findByNameAndPassWord(name, passWord);
-    }catch (Exception e){
+    } catch (Exception e) {
       return null;
     }
-     return user;
+
+    return user;
   }
 } // end class UserServiceImpl
