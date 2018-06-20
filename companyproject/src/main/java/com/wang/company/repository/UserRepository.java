@@ -23,4 +23,15 @@ public interface UserRepository extends CrudRepository<User, Long> {
    * @return  DOCUMENT ME!
    */
   User findByNameAndPassWord(String name, String passWord);
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
+   * DOCUMENT ME!
+   *
+   * @param   id  DOCUMENT ME!
+   *
+   * @return  DOCUMENT ME!
+   */
+  User getById(Long id);
 }
