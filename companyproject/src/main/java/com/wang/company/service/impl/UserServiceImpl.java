@@ -1,11 +1,15 @@
 package com.wang.company.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import com.wang.company.command.UserCommand;
 import com.wang.company.model.User;
 import com.wang.company.repository.UserRepository;
 import com.wang.company.service.UserService;
@@ -24,6 +28,26 @@ import com.wang.company.service.UserService;
   @Autowired UserRepository userRepository;
 
   //~ Methods ----------------------------------------------------------------------------------------------------------
+
+  /**
+   * @see  com.wang.company.service.UserService#findAll()
+   */
+  @Override public List<UserCommand> findAll() {
+    userRepository.findAll();
+
+    List<UserCommand> userCommands = new ArrayList<>();
+
+    for (User user : userRepository.findAll()) {
+      UserCommand command = new UserCommand();
+      command.setId(user.getId());
+      command.setName(user.getName());
+      userCommands.add(command);
+    }
+
+    return userCommands;
+  }
+
+  //~ ------------------------------------------------------------------------------------------------------------------
 
   /**
    * @see  com.wang.company.service.UserService#findByNameAndPassWord(java.lang.String, java.lang.String)

@@ -45,7 +45,7 @@ import com.wang.company.service.CompanyService;
   public ResponseEntity<ResponseCommand> createCompany(CompanyCommand companyCommand, HttpServletRequest request) {
     String errorMessage = companyService.createCompany(companyCommand);
 
-    return new ResponseEntity<>(new ResponseCommand(errorMessage), HttpStatus.OK);
+    return new ResponseEntity<>(new CompanyCommand(errorMessage), HttpStatus.OK);
   }
 
 } // end class CompanyController

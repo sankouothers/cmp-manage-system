@@ -9,7 +9,7 @@ import com.wang.company.model.User;
  * @author   <a href="mailto:pin.wang@ozstrategy.com">Pin Wang</a>
  * @version  $Revision$, $Date$
  */
-public class CompanyCommand {
+public class CompanyCommand extends ResponseCommand {
   //~ Instance fields --------------------------------------------------------------------------------------------------
 
   private User administrator;
@@ -25,7 +25,18 @@ public class CompanyCommand {
   /**
    * Creates a new CompanyCommand object.
    */
-  public CompanyCommand() { }
+  public CompanyCommand() {
+    super();
+  }
+
+  /**
+   * Creates a new CompanyCommand object.
+   *
+   * @param  errorMessage  DOCUMENT ME!
+   */
+  public CompanyCommand(String errorMessage) {
+    super(errorMessage);
+  }
 
   //~ Methods ----------------------------------------------------------------------------------------------------------
 

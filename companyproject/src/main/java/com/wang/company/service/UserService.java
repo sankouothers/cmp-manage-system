@@ -1,6 +1,9 @@
 package com.wang.company.service;
 
 
+import java.util.List;
+
+import com.wang.company.command.UserCommand;
 import com.wang.company.model.User;
 
 
@@ -16,11 +19,19 @@ public interface UserService {
   /**
    * DOCUMENT ME!
    *
+   * @return  DOCUMENT ME!
+   */
+  List<UserCommand> findAll();
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
+   * DOCUMENT ME!
+   *
    * @param   name      DOCUMENT ME!
    * @param   passWord  DOCUMENT ME!
    *
    * @return  DOCUMENT ME!
    */
   User findByNameAndPassWord(String name, String passWord);
-
 } // end interface UserService

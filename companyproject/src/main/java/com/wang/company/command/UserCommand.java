@@ -6,19 +6,27 @@ package com.wang.company.command;
  * @author   <a href="mailto:pin.wang@ozstrategy.com">Pin Wang</a>
  * @version  $Revision$, $Date$
  */
-public class LoginCommand extends ResponseCommand{
+public class UserCommand extends ResponseCommand {
   //~ Instance fields --------------------------------------------------------------------------------------------------
 
-  private String passWord;
+  private Long   id;
+  private String name;
 
-  private String userName;
+  //~ Constructors -----------------------------------------------------------------------------------------------------
+
+  /**
+   * Creates a new UserCommand object.
+   */
+  public UserCommand() {
+    super();
+  }
 
   /**
    * Creates a new ResponseCommand object.
    *
-   * @param errorMessage DOCUMENT ME!
+   * @param  errorMessage  DOCUMENT ME!
    */
-  public LoginCommand(String errorMessage) {
+  public UserCommand(String errorMessage) {
     super(errorMessage);
   }
 
@@ -29,8 +37,8 @@ public class LoginCommand extends ResponseCommand{
    *
    * @return  DOCUMENT ME!
    */
-  public String getPassWord() {
-    return passWord;
+  public Long getId() {
+    return id;
   }
 
   //~ ------------------------------------------------------------------------------------------------------------------
@@ -40,8 +48,8 @@ public class LoginCommand extends ResponseCommand{
    *
    * @return  DOCUMENT ME!
    */
-  public String getUserName() {
-    return userName;
+  public String getName() {
+    return name;
   }
 
   //~ ------------------------------------------------------------------------------------------------------------------
@@ -49,10 +57,10 @@ public class LoginCommand extends ResponseCommand{
   /**
    * DOCUMENT ME!
    *
-   * @param  passWord  DOCUMENT ME!
+   * @param  id  DOCUMENT ME!
    */
-  public void setPassWord(String passWord) {
-    this.passWord = passWord;
+  public void setId(Long id) {
+    this.id = id;
   }
 
   //~ ------------------------------------------------------------------------------------------------------------------
@@ -60,10 +68,9 @@ public class LoginCommand extends ResponseCommand{
   /**
    * DOCUMENT ME!
    *
-   * @param  userName  DOCUMENT ME!
+   * @param  name  DOCUMENT ME!
    */
-  public void setUserName(String userName) {
-    this.userName = userName;
+  public void setName(String name) {
+    this.name = name;
   }
-
-} // end class LoginCommand
+} // end class UserCommand

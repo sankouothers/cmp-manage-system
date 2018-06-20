@@ -15,6 +15,11 @@ public class ResponseCommand {
 
   /**
    * Creates a new ResponseCommand object.
+   */
+  public ResponseCommand() { }
+
+  /**
+   * Creates a new ResponseCommand object.
    *
    * @param  errorMessage  DOCUMENT ME!
    */
