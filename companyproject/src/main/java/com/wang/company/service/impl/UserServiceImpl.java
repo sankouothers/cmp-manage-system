@@ -33,8 +33,6 @@ import com.wang.company.service.UserService;
    * @see  com.wang.company.service.UserService#findAll()
    */
   @Override public List<UserCommand> findAll() {
-    userRepository.findAll();
-
     List<UserCommand> userCommands = new ArrayList<>();
 
     for (User user : userRepository.findAll()) {

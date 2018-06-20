@@ -14,7 +14,8 @@ public class CompanyCommand extends ResponseCommand {
 
   private User administrator;
 
-  private Long administratorId;
+  private Long   administratorId;
+  private String administratorName;
 
   private Long id;
 
@@ -58,6 +59,18 @@ public class CompanyCommand extends ResponseCommand {
    */
   public Long getAdministratorId() {
     return administratorId;
+  }
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+
+  /**
+   * DOCUMENT ME!
+   *
+   * @return  DOCUMENT ME!
+   */
+  public String getAdministratorName() {
+    return administratorName;
   }
 
   //~ ------------------------------------------------------------------------------------------------------------------
@@ -109,6 +122,17 @@ public class CompanyCommand extends ResponseCommand {
   /**
    * DOCUMENT ME!
    *
+   * @param  administratorName  DOCUMENT ME!
+   */
+  public void setAdministratorName(String administratorName) {
+    this.administratorName = administratorName;
+  }
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
+   * DOCUMENT ME!
+   *
    * @param  id  DOCUMENT ME!
    */
   public void setId(Long id) {
@@ -125,6 +149,4 @@ public class CompanyCommand extends ResponseCommand {
   public void setName(String name) {
     this.name = name;
   }
-
-
 } // end class CompanyCommand

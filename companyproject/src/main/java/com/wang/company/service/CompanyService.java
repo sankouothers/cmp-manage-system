@@ -1,6 +1,8 @@
 package com.wang.company.service;
 
 
+import java.util.List;
+
 import com.wang.company.command.CompanyCommand;
 
 
@@ -21,4 +23,13 @@ public interface CompanyService {
    * @return  DOCUMENT ME!
    */
   String createCompany(CompanyCommand companyCommand);
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
+   * DOCUMENT ME!
+   *
+   * @return  DOCUMENT ME!
+   */
+  List<CompanyCommand> findAll();
 }

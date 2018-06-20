@@ -1,6 +1,8 @@
 package com.wang.company.service.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -48,6 +50,25 @@ import com.wang.company.service.CompanyService;
     company.setCreateDate(new Date());
 
     return "";
+  }
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
+   * @see  com.wang.company.service.CompanyService#findAll()
+   */
+  @Override public List<CompanyCommand> findAll() {
+    List<CompanyCommand> companyCommands = new ArrayList<>();
+
+    for (Company company : companyRepository.findAll()) {
+      CompanyCommand command = new CompanyCommand();
+      command.setId(company.getId());
+      command.setName(company.getName());
+      command.setAdministratorName(company.getAdministrator().getName());
+      companyCommands.add(command);
+    }
+
+    return companyCommands;
   }
 
 } // end class CompanyServiceImpl
